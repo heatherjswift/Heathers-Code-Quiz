@@ -27,5 +27,51 @@ body {
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
-    
+}
+
+.btn-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn {
+    background-color: #956ee9;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn:hover {
+    background-color: #c9b1fd;
+}
+
+.btn.correct {
+    background-color: rgb(36, 219, 36);
+}
+
+.btn.wrong {
+    background-color: red;
+}
+
+.start-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: rgb(36, 219, 36);
+}
+
+.start-btn:hover {
+    background-color: rgb(139, 247, 139);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
 }
