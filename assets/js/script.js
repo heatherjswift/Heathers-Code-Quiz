@@ -11,6 +11,9 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 let shuffledQuestions, currentQuestionIndex
 
 function startGame() {
+    var oneMinute = 60 * 1,
+    display = document.querySelector('#time');
+    startTimer(oneMinute, display);
     startButton.classList.add('hide')
     startPage[0].classList.add('hide')
     startPage[1].classList.add('hide')
@@ -37,12 +40,6 @@ function startTimer(duration, display) {
         }
     }, 1000);
 }
-
-window.onload = function () {
-    var oneMinute = 60 * 1,
-        display = document.querySelector('#time');
-    startTimer(oneMinute, display);
-};
 
 function setNextQuestion() {
     resetState()
@@ -148,14 +145,12 @@ const questions = [
             { text: '["cat","dog","mouse"]', correct: false}
         ]
     }
-    // if (correct=true) {
-    //     score=score+10
-    // } else {
-    //     time= time-5s
-    // }
 ]
 
-
+// if (questions.correct: true) {
+//     score=score+10
+//     console.log(score)
+// }
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
