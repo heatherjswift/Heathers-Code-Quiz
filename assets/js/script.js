@@ -7,6 +7,8 @@ const startPage = document.getElementsByClassName('start-page')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+const endPageElement = document.getElementById('end-page')
+const highScoreElement = document.getElementById('highscore')
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -70,7 +72,12 @@ function resetState() {
 
 function selectAnswer(e) {
     const selectedButton = e.target
+    console.log(selectedButton)
     const correct = selectedButton.dataset.correct
+    if (correct) {
+        score=score+10
+    } 
+    console.log(score)
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -80,6 +87,18 @@ function selectAnswer(e) {
     } else {
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
+        endPageElement.classList.remove('hide')
+        questionContainerElement.classList.add('hide')
+        var highScore = localStorage.getItem("highscore");
+        if (highScore === null) {
+            highScore = 0;
+        }
+    
+        if (score > highScore) {
+            localStorage.setItem("highscore", score);
+            
+        }
+        console.log(highScore)
     }   
 }
 
